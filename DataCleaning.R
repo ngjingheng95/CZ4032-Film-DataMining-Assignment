@@ -7,14 +7,14 @@ library(stringr)
 library(caTools)
 
 # Initialise Variables and environment =======================================
-setwd("C:/Users/sogge/Desktop/CZ4032 Data Analytics and Minining/Dataset")
+setwd("C:/Users/sogge/Desktop/GitRepos/CZ4032-Film-DataMining-Assignment/Dataset")
 
 df.raw <- read.csv("movie_metadata.csv")
 set.seed(1337)
 
 # DEBUG: Shrink dataset size to decrease development time
-sample = sample.split(df.raw$movie_title, SplitRatio = .10)
-df.raw = subset(df.raw, sample == TRUE)
+#sample = sample.split(df.raw$movie_title, SplitRatio = .10)
+#df.raw = subset(df.raw, sample == TRUE)
 
 # [Section 1] Genre Cleaning ==================================================
 
@@ -235,4 +235,4 @@ df.finalMerged$actor_fb_likes[is.na(df.finalMerged$actor_fb_likes)] <- mean(df.f
 
 summary(df.finalMerged)
 
-# write.csv(df.finalMerged, file = "movie_team1_cleaned.csv")
+write.csv(df.finalMerged, file = "movies_cleaned.csv")
